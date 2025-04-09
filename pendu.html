@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Le pendu</title>
+		<link rel="stylesheet" href="pendu.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet" />
+		<script src="pendu.js" defer></script>
+	</head>
+	<body>
+		<h1>Le jeu du pendu</h1>
+		<p>Trouvez le mot caché! Entrez une lettre à la fois.</p>
+		<select
+			name="difficulty"
+			class="difficulty"
+			placeholder="difficulty"
+			oninput="choisirMot()">
+			<option id="easy" value="easy">Mode normal</option>
+			<option id="hard" value="hard">Mode difficile</option>
+		</select>
+
+		<div class="conteneur-jeu">
+			<div class="conteneur-theme">
+				<h3>Thème du mot:</h3>
+				<span class="displayTheme"></span>
+			</div>
+			<svg height="250" width="200" class="conteneur-pendu">
+				<!-- dessin de la potence -->
+				<line x1="60" y1="20" x2="140" y2="20" />
+				<line x1="140" y1="20" x2="140" y2="50" />
+				<line x1="60" y1="20" x2="60" y2="230" />
+				<line x1="20" y1="230" x2="100" y2="230" />
+
+				<!-- dessin du pendu -->
+				<!-- tête -->
+				<circle cx="140" cy="70" r="20" class="pendu-parts" />
+				<!-- corps -->
+				<line x1="140" y1="90" x2="140" y2="150" class="pendu-parts" />
+				<!-- bras -->
+				<line x1="140" y1="120" x2="120" y2="100" class="pendu-parts" />
+				<line x1="140" y1="120" x2="160" y2="100" class="pendu-parts" />
+				<!-- jambes -->
+				<line x1="140" y1="150" x2="120" y2="180" class="pendu-parts" />
+				<line x1="140" y1="150" x2="160" y2="180" class="pendu-parts" />
+			</svg>
+
+			<div class="conteneur-lettresFausses">
+				<p>Lettres fausses :</p>
+				<div class="lettresFausses"></div>
+			</div>
+			<div class="mot" contenteditable=""></div>
+		</div>
+		<!-- Fenêtre de fin de jeu -->
+		<div class="conteneur-popUp">
+			<div class="popUp">
+				<h2 class="messageFinal"></h2>
+				<button class="play-button">Rejouer</button>
+			</div>
+		</div>
+		<!-- Notifications -->
+		<div class="notif">
+			<p>Vous avez déja essayé cette lettre!</p>
+		</div>
+	</body>
+</html>
